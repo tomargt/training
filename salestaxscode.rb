@@ -11,7 +11,7 @@ class SalesTax
     is_imported: (detail_list.include? "imported")}
   end
 
-    def process_order_item(description)
+    def process_order(description)
     item = create_order(description)
     tax = item_tax(item[:price], item[:sales_tax_rate], item[:is_imported])
     price = net_item_price(tax, item[:price])
@@ -21,7 +21,7 @@ class SalesTax
     def get_order_details(item_list)
     details_list = []
     item_list.each do |item|
-      item_details = process_order_item(item)
+      item_details = process_order(item)
       details_list << item_details
     end
     details_list
