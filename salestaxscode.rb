@@ -49,7 +49,7 @@ class SalesCalculator < SalesTax
   end 
   
   def round_off(amount)
-    (amount / 0.05).ceil * 0.05
+    (amount / 0.05) * 0.05
   end
 
   def get_total_cost(order_details)
